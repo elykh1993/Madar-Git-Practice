@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10172c" />
+    <meta
+      name="description"
+      content="مدار، فضای ساده و زیبای برنامه‌ریزی مطالعه و تمرکز."
+    />
+    <title>مدار | برنامه‌ریز مطالعه</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand" aria-label="مدار">
+          <span class="brand-symbol">✦</span
+          ><span>مَدار<small>FOCUS & FLOW</small></span>
+        </div>
+        <div class="side-section-label">فضای کار من</div>
+        <nav aria-label="بخش‌های برنامه">
+          <a href="#dashboard" class="nav-link selected"
+            ><span>▦</span> داشبورد</a
+          >
+          <a href="#tasks" class="nav-link"><span>☑</span> کارهای من</a>
+          <a href="#focus" class="nav-link"><span>◷</span> تمرکز</a>
+        </nav>
+        <div class="side-note">
+          <span class="sparkle">✧</span><strong>هر قدم کوچک مهم است.</strong>
+          <p>لازم نیست همه‌چیز امروز تمام شود. فقط ادامه بده.</p>
+        </div>
+        <div class="side-footer">توسط الهه ساخته شده است</div>
+      </aside>
+
+      <main id="dashboard" class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb">فضای شخصی <span>/</span> نمای کلی</div>
+          <div class="today-pill">
+            <span class="status-dot"></span><span id="today-date">امروز</span>
+          </div>
+        </header>
+        <section class="welcome">
+          <div>
+            <span class="eyebrow">مسیرت از همین‌جا شروع می‌شود ✦</span>
+            <h1>سلام، آماده‌ای برای<br /><em>یک روز پربازده؟</em></h1>
+            <p>برنامه‌ات را شفاف بچین و هر بار فقط روی قدم بعدی تمرکز کن.</p>
+            <a class="primary-link" href="#tasks"
+              >برنامه‌ریزی را شروع کن <span>←</span></a
+            >
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="planet"><span>✺</span></div>
+            <div class="tiny-star s1">✦</div>
+            <div class="tiny-star s2">✧</div>
+            <div class="tiny-star s3">✳</div>
+          </div>
+        </section>
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">AT A GLANCE</span>
+            <h2>نگاه کلی</h2>
+          </div>
+          <span class="muted">پیشرفت امروزت، در یک نگاه</span>
+        </div>
+        <section class="stats" aria-label="آمار مطالعه">
+          <article class="stat-card">
+            <div class="stat-icon purple">☑</div>
+            <div>
+              <p>کل کارها</p>
+              <strong id="stat-total">۰</strong>
+            </div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon green">✓</div>
+            <div>
+              <p>انجام‌شده</p>
+              <strong id="stat-done">۰</strong>
+            </div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon amber">◷</div>
+            <div>
+              <p>باقی‌مانده</p>
+              <strong id="stat-remaining">۰</strong>
+            </div>
+          </article>
+        </section>
+        <section class="workspace">
+          <div class="tasks-panel card" id="tasks">
+            <div class="panel-heading">
+              <div>
+                <span class="section-kicker">YOUR PRIORITIES</span>
+                <h2>فهرست کارها</h2>
+              </div>
+              <span class="tiny-label" id="task-count">۰ کار</span>
+            </div>
+            <form id="task-form" class="task-form">
+              <label class="sr-only" for="task-input">عنوان کار جدید</label
+              ><input
+                id="task-input"
+                placeholder="مثلاً: مرور درس سوم زبان..."
+                maxlength="90"
+                required
+              /><label class="sr-only" for="priority">اولویت</label
+              ><select id="priority" title="اولویت کار">
+                <option value="medium">متوسط</option>
+                <option value="high">مهم</option>
+                <option value="low">کم</option></select
+              ><button type="submit">+ افزودن</button>
+            </form>
+            <div class="filters" role="group" aria-label="فیلتر کارها">
+              <button class="filter active" data-filter="all" type="button">
+                همه</button
+              ><button class="filter" data-filter="active" type="button">
+                در انتظار</button
+              ><button class="filter" data-filter="done" type="button">
+                انجام‌شده
+              </button>
+            </div>
+            <ul id="task-list" class="task-list" aria-live="polite"></ul>
+            <p id="empty-message" class="empty-message" hidden>
+              اینجا فعلاً خالیه. اولین کارت رو اضافه کن ✨
+            </p>
+          </div>
+          <div class="right-column">
+            <section class="progress-panel card">
+              <div class="panel-heading">
+                <div>
+                  <span class="section-kicker">KEEP GOING</span>
+                  <h2>میزان پیشرفت</h2>
+                </div>
+                <span>✳</span>
+              </div>
+              <div class="progress-number" id="progress-number">۰٪</div>
+              <div class="progress-track">
+                <div id="progress-bar" class="progress-bar"></div>
+              </div>
+              <p id="progress-caption">با تکمیل کارها، این نوار پر می‌شود.</p>
+            </section>
+            <section class="focus-panel card" id="focus">
+              <div class="panel-heading">
+                <div>
+                  <span class="section-kicker">DEEP WORK</span>
+                  <h2>تایمر تمرکز</h2>
+                </div>
+                <span class="focus-icon">◷</span>
+              </div>
+              <p>یک بازه بدون حواس‌پرتی برای خودت بساز.</p>
+              <div class="timer-ring">
+                <span id="timer-display" aria-live="off">25:00</span
+                ><small>دقیقه تمرکز</small>
+              </div>
+              <div class="timer-buttons">
+                <button id="timer-start" class="timer-start" type="button">
+                  شروع تمرکز</button
+                ><button
+                  id="timer-reset"
+                  class="timer-reset"
+                  type="button"
+                  aria-label="بازنشانی تایمر"
+                  title="بازنشانی"
+                >
+                  ↺
+                </button>
+              </div>
+              <p class="timer-hint" id="timer-hint" aria-live="polite">
+                ۲۵ دقیقه تمرکز، سپس کمی استراحت.
+              </p>
+            </section>
+          </div>
+        </section>
+        <footer class="footer">
+          Made with curiosity ✦
+          <span>مدار | دنیای کوچکی برای هدف‌های بزرگ</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
